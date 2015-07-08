@@ -1,0 +1,43 @@
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+
+    <description>A tab library for action tag support</description>
+    <tlib-version>1.0</tlib-version>
+    <short-name>virtusa</short-name>
+    <uri>http://com.virtusa.training/taglibs/action/1.0</uri>
+
+    <!-- =================================================================== -->
+    <tag>
+        
+        <name>action</name>
+        <tag-class>com.virtusa.training.taglib.ActionTag</tag-class>
+         <body-content>empty</body-content>
+         <attribute>
+            <description>
+                this will give the model name.
+            </description>
+            <name>bean</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>
+                this will give the give the action tag. 
+            </description>
+            <name>actionClassName</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>
+                This is action name to be called in action class. 
+            </description>
+            <name>actionName</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        </tag>
+     
+        </taglib>

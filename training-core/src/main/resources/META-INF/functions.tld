@@ -1,0 +1,505 @@
+<taglib
+    xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    version="2.0"
+    xsi:schemaLocation="
+        http://java.sun.com/xml/ns/j2ee
+        http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">
+
+    <description>A supporting tab functions library for template CQ Applications</description>
+    <tlib-version>1.0</tlib-version>
+    <short-name>templatefunc</short-name>
+    <uri>http://com.virtusa.training/taglibs/func/1.0</uri>
+
+     
+    <function>
+        <description>
+            Gets a page's short title, pulling from jcr:title first, and if that's empty returning the default value
+            passed in
+        </description>
+        <name>getPageShortTitle</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>java.lang.String getShortTitle(org.apache.sling.api.resource.ValueMap,java.lang.String)
+        </function-signature>
+        <example>
+            &lt;title&gt;${midsize-funcs:getPageShortTitle(pageProperties, "Virtusa")}&lt;title&gt;
+        </example>
+    </function>
+
+    <function>
+        <description>
+            Gets a page's navigation title, pulling from the navTitle property and then from jcr:title, and if that's
+            empty returning the default value passed in.
+        </description>
+        <name>getPageNavigationTitle</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>java.lang.String getNavigationTitle(org.apache.sling.api.resource.ValueMap,java.lang.String)
+        </function-signature>
+        <example>
+            &lt;title&gt;${midsize-funcs:getPageNavigationTitle(pageProperties, "Template")}&lt;title&gt;
+        </example>
+    </function>
+    
+    <function>
+        <description>
+            Gets a page's H1 title, pulling from the h1Title property, and then from the pageTitle property, and then
+            from jcr:title, and if that's empty returning the default value passed in.
+        </description>
+        <name>getPageH1Title</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>java.lang.String getH1Title(org.apache.sling.api.resource.ValueMap,java.lang.String)
+        </function-signature>
+        <example>
+            &lt;title&gt;${midsize-funcs:getPageH1Title(pageProperties, "Template")}&lt;title&gt;
+        </example>
+    </function>
+
+    <function>
+        <description>
+            Gets div ID for a component from the component's resource
+        </description>
+        <name>getComponentDivId</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>java.lang.String getComponentDivId(org.apache.sling.api.resource.Resource)
+        </function-signature>
+    </function>
+
+    <function>
+        <description>
+            Get a site config property
+        </description>
+        <name>getSiteConfigProperty</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>java.lang.String getSiteConfigProperty(org.apache.sling.api.resource.Resource,
+            java.lang.String)
+        </function-signature>
+    </function>
+
+    <function>
+        <description>
+            Get a language config property
+        </description>
+        <name>getLanguageConfigProperty</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>java.lang.String getLanguageConfigProperty(org.apache.sling.api.resource.Resource,
+            java.lang.String)
+        </function-signature>
+    </function>
+
+    <function>
+        <description>
+            Escapes text to ensure it is valid
+            for use inside an HTML tag attribute.
+        </description>
+        <name>escapeHtml</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+            java.lang.String escapeHtml( java.lang.String )
+        </function-signature>
+    </function>
+
+    <function>
+        <description>
+            Returns The value mapped to the given
+            key in the provided page.
+        </description>
+        <name>escapeProperty</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+            java.lang.String escapeProperty( com.day.cq.wcm.api.Page, java.lang.String )
+        </function-signature>
+    </function>
+
+    <function>
+        <description>
+            A comma separated list of keywords from the given page node, and
+            the site config page (the current page’s level 3 ancestor).
+        </description>
+        <name>getKeywords</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+            java.lang.String getKeywords( com.day.cq.wcm.api.Page )
+        </function-signature>
+    </function>
+
+
+    <function>
+        <description>
+            The title of the given page for use in the browser
+            &lt;title&gt; tag
+        </description>
+        <name>getTitle</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+            java.lang.String getTitle( com.day.cq.wcm.api.Page, java.lang.String )
+        </function-signature>
+    </function>
+
+    <function>
+        <description>
+            The browser title of the given page for use in the browser
+            &lt;title&gt; tag
+        </description>
+        <name>getPageBrowserTitle</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+            java.lang.String getPageBrowserTitle( com.day.cq.wcm.api.Page, java.lang.String )
+        </function-signature>
+    </function>
+
+    <function>
+        <description>
+            The page description of the given page for use in the html head
+        </description>
+        <name>getPageDescription</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+            java.lang.String getPageDescription(com.day.cq.wcm.api.Page)
+        </function-signature>
+    </function>
+
+    <function>
+        <description>
+            Returns the indicated property from the given resource, or null if
+            not available.
+        </description>
+        <name>getProperty</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+            java.lang.Object getProperty( org.apache.sling.api.resource.Resource, java.lang.String, java.lang.String )
+        </function-signature>
+    </function>
+
+    <function>
+        <description>
+            Returns the canonical URL of the given page if set. Otherwise, null
+            is returned.
+        </description>
+        <name>getCanonicalUrl</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+            java.lang.String getCanonicalUrl( org.apache.sling.api.SlingHttpServletRequest, com.day.cq.wcm.api.Page )
+        </function-signature>
+    </function>
+
+    <function>
+        <description>
+            Returns the redirect URL configured for the given page.  If not
+            configured, null is returned.
+        </description>
+        <name>getRedirectUrl</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+            java.lang.String getRedirectUrl( com.day.cq.wcm.api.Page )
+        </function-signature>
+    </function>
+
+    <function>
+        <description>
+            Returns true if the given page has been configured with a
+            redirect URL; false otherwise.
+        </description>
+        <name>isRedirect</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+            boolean isRedirect( com.day.cq.wcm.api.Page )
+        </function-signature>
+    </function>
+
+    <function>
+        <description>
+            Returns true if the header should be shown for the given page;
+            false otherwise.  Inspects the "hideHeader" property of the given
+            page.  If the property is not set, true is returned.
+        </description>
+        <name>showHeader</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+            boolean showHeader( com.day.cq.wcm.api.Page )
+        </function-signature>
+    </function>
+    
+    <function>
+        <description>
+            Returns true if the footer should be shown for the given page;
+            false otherwise.  Inspects the "hideFooter" property of the given
+            page.  If the property is not set, true is returned.
+        </description>
+        <name>showFooter</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+            boolean showFooter( com.day.cq.wcm.api.Page )
+        </function-signature>
+    </function>
+    
+    <function>
+        <description>
+            Returns true if the right rail should be shown for the given page;
+            false otherwise.  Inspects the "hideRightRail" property of the given
+            page.  If the property is not set, true is returned.
+        </description>
+        <name>showRightRail</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+            boolean showRightRail( com.day.cq.wcm.api.Page )
+        </function-signature>
+    </function>
+
+    
+    <function>
+        <description>
+            Returns true if the breadcrumb should be shown for the given page;
+            false otherwise.  Inspects the "hideBreadCrumb" property of the given
+            page.  If the property is not set, true is returned.
+        </description>
+        <name>showBreadCrumb</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+            boolean showBreadCrumb( com.day.cq.wcm.api.Page )
+        </function-signature>
+    </function>
+
+
+    <function>
+        <description>
+            Returns true if the page title component should be shown for the given page;
+            false otherwise.  Inspects the "hidePageTitle" property of the given
+            page.  If the property is not set, true is returned.
+        </description>
+        <name>showPageTitle</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+            boolean showPageTitle( com.day.cq.wcm.api.Page )
+        </function-signature>
+    </function>
+
+    
+    <function>
+        <description>
+            Returns true if the border should display around a parsys;
+            false otherwise.  Inspects the "showContainerBorder" property of the given
+            page.  If the property is set, true is returned.
+        </description>
+        <name>showContainerBorder</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+            boolean showContainerBorder( com.day.cq.wcm.api.Page )
+        </function-signature>
+    </function>
+    
+    <function>
+        <description>
+            Return true if the given page is a site root, or "level 3" page;
+            false otherwise.
+        </description>
+        <name>isSiteRoot</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+            boolean isSiteRoot( com.day.cq.wcm.api.Page )
+        </function-signature>
+    </function>
+    
+    <function>
+        <description>
+            Creates a valid href or link or URL from typical CQ link storage formats.
+     		A simple function that converts an authored entered link to a valid link for href us or in a redirect. 
+        </description>
+        <name>createValidLink</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+        	java.lang.String createValidLink( java.lang.String, java.lang.String )
+        </function-signature>
+    </function>
+
+    <function>
+        <description>
+            Identifies the site root, or "level 3" page, of the given page.
+        </description>
+        <name>getSiteRoot</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+        	com.day.cq.wcm.api.Page getSiteRoot( com.day.cq.wcm.api.Page )
+        </function-signature>
+    </function>
+
+    <function>
+        <description>
+            Returns the content resource of the given page under the given path.
+        </description>
+        <name>getResource</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+            org.apache.sling.api.resource.Resource getResource( com.day.cq.wcm.api.Page, java.lang.String )
+        </function-signature>
+    </function>
+
+    <function>
+        <description>
+            Returns the content resource of the given page under the given path.
+        </description>
+        <name>getRelativeResource</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+            org.apache.sling.api.resource.Resource getResource( org.apache.sling.api.resource.Resource, java.lang.String )
+        </function-signature>
+    </function>
+
+    <function>
+        <description>
+            Returns the resource resolved from the given absolute path.
+        </description>
+        <name>getAbsoluteResource</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+            org.apache.sling.api.resource.Resource getResource( org.apache.sling.api.SlingHttpServletRequest, java.lang.String )
+        </function-signature>
+    </function>
+
+    <function>
+        <description>
+            Returns an iterator over the child nodes of the given resource.
+        </description>
+        <name>getChildren</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+            java.util.Iterator getChildren( org.apache.sling.api.resource.Resource )
+        </function-signature>
+    </function>
+
+    <function>
+        <description>
+            Return The site root for the given page as a string.
+        </description>
+        <name>getSiteRootPath</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+            java.lang.String getSiteRootPath( org.apache.sling.api.SlingHttpServletRequest, com.day.cq.wcm.api.Page )
+        </function-signature>
+    </function>
+
+    <function>
+        <description>
+            Get the language for a given page. Default to "En".
+        </description>
+        <name>getPageLanguage</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+            java.lang.String getPageLanguage( com.day.cq.wcm.api.Page )
+        </function-signature>
+    </function>
+
+    <function>
+        <description>
+            Indicates whether currently in author mode or not.
+        </description>
+        <name>isAuthorMode</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+            boolean isAuthorMode( javax.servlet.jsp.PageContext )
+        </function-signature>
+    </function>
+
+    <function>
+        <description>
+            Indicates if the given image matches the provided dimensions.
+        </description>
+        <name>isSize</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+            boolean isSize( com.day.cq.wcm.foundation.Image, int, int )
+        </function-signature>
+    </function>
+
+
+    <function>
+        <description>
+
+        </description>
+        <name>adaptToValueMap</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+            org.apache.sling.api.resource.ValueMap adaptToValueMap( org.apache.sling.api.resource.Resource )
+        </function-signature>
+    </function>
+
+
+    <function>
+        <description>
+            Returns the given link with a ".html" extension.  If the given link
+            already has a ".html" extension, it is returned unchanged.
+        </description>
+        <name>withHypertextExtension</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+            java.lang.String withHypertextExtension( java.lang.String )
+        </function-signature>
+    </function>
+    
+
+    <function>
+        <description>
+            Escapes a URL from Day to make it cache friendly.
+        </description>
+        <name>escapeDayUrl</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+            java.lang.String escapeDayUrl(java.lang.String, boolean)
+        </function-signature>
+    </function>
+
+
+    <function>
+        <description>
+            Returns true if the given object is null, or semantically empty
+            depending on the object type; false otherwise.
+        </description>
+        <name>isEmpty</name>
+        <function-class>com.demoorg.demo.wcm.util.Util</function-class>
+        <function-signature>
+            boolean isEmpty( java.lang.Object )
+        </function-signature>
+    </function>
+
+
+    <function>
+        <description>
+            Returns true if the component should display in "form mode";
+            false otherwise.
+        </description>
+        <name>isFormMode</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+            boolean isFormMode( com.day.cq.wcm.api.components.Component, org.apache.sling.api.SlingHttpServletRequest )
+        </function-signature>
+    </function>
+
+
+	<function>
+        <description>
+            Returns true if the Featured Q&amp;A component should be shown for the given page;
+            false otherwise.  Inspects the "hideFeaturedQA" property of the given
+            page.  If the property is not set, true is returned.
+        </description>
+        <name>showFeaturedQA</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>
+            boolean showFeaturedQA( com.day.cq.wcm.api.Page )
+        </function-signature>
+    </function>
+
+    <function>
+        <description>
+	    This method is used to populate a random number.
+        </description>
+        <name>getNextRandomNumber</name>
+        <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+        <function-signature>int getNextRandomNumber()</function-signature>
+    </function>
+    <function>
+	    <name>draw</name>
+	    <function-class>com.virtusa.training.taglib.UtilityFunctions</function-class>
+	    <function-signature>
+	        void draw(com.day.cq.wcm.foundation.Image, java.io.Writer)
+	    </function-signature>
+	</function>
+</taglib>
