@@ -8,10 +8,16 @@ package com.virtusa.training.model;
 
 import java.io.Serializable;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import org.apache.sling.api.resource.Resource;
+import org.apache.sling.models.annotations.Model;
+@Model(adaptables={Resource.class})
 public class HelloWorldBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    @Inject @Named("name")
     private String message;
 
     private String appConfigMessage;
@@ -19,13 +25,16 @@ public class HelloWorldBean implements Serializable {
     public HelloWorldBean() {
 
     }
-
+   /* @Inject
+    public HelloWorldBean(@Named("name") String name) {
+    	this.message = name;
+    }*/
     public HelloWorldBean(String message, String appConfigMessage) {
         super();
         this.message = message;
         this.appConfigMessage = appConfigMessage;
     }
-
+    //@Inject @Named("name")
     public String getMessage() {
         return message;
     }
